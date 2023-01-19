@@ -3,6 +3,7 @@
 const Hapi = require('@hapi/hapi');
 import './database'
 import { customers } from "./routes/customers";
+import { note } from "./routes/note";
 const HapiAuth = require('hapi-auth-jwt2');
 
 const init = async () => {
@@ -35,18 +36,9 @@ const init = async () => {
     server.auth.default('jwt')
 
     customers(server)
+    note(server)
     await server.start();
     console.log('Server running on %s', server.info.uri);
-
-    // function validate(decoded: any, request: Request) {
-    //     // console.log(decoded);
-    //     if(decoded) {
-    //         request.auth.credentials
-    //         return { isValid: true }
-    //     } else {
-    //         return { isValid: false }
-    //     }
-    // }
 };
 
 process.on('unhandledRejection', (err) => {

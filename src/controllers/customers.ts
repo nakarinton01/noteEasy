@@ -2,14 +2,6 @@ import { Request, ResponseToolkit } from "@hapi/hapi";
 import Customers from '../models/customers'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import mongoose, { Types } from 'mongoose'
-
-// export interface ICustomers {
-//   _id: Types.ObjectId,
-//   fullName: String,
-//   username: String,
-//   password: String,
-// }
 
 export const register = async ( request: Request, h: ResponseToolkit ) => {
   try {
