@@ -4,6 +4,7 @@ const Hapi = require('@hapi/hapi');
 import './database'
 import { customers } from "./routes/customers";
 import { note } from "./routes/note";
+import { historyNote } from "./routes/historyNote";
 const HapiAuth = require('hapi-auth-jwt2');
 
 const init = async () => {
@@ -37,6 +38,7 @@ const init = async () => {
 
     customers(server)
     note(server)
+    historyNote(server)
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };

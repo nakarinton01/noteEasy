@@ -1,6 +1,7 @@
 import {Schema, model, Types} from "mongoose";
 
-export interface INote {
+export interface IhistoryNote {
+  // noteId: Types.ObjectId,
   name: String,
   category: {
     _id: Types.ObjectId,
@@ -17,7 +18,8 @@ export interface INote {
   updateAt: Date,
 }
 
-const noteModel = new Schema({
+const historyNoteModel = new Schema({
+  // noteId: { type: Types.ObjectId },
   name: { type: String },
   category: {
     _id: { type: Types.ObjectId },
@@ -34,4 +36,4 @@ const noteModel = new Schema({
   updateAt: { type: Date, default: Date.now },
 })
 
-export default model<INote>('note', noteModel )
+export default model<IhistoryNote>('history note', historyNoteModel )
